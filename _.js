@@ -1,35 +1,34 @@
 const _ = {
   clamp(number, lowerBound, upperBound) {
-  	numberMax = Math.max(number, lowerBound);
+    numberMax = Math.max(number, lowerBound);
     numberMin = Math.min(number, upperBound);  	
-  	if(number >= numberMax && number > numberMin) {
+    if(number >= numberMax && number > numberMin) {
       return upperBound;
     } 
-    else if (number === numberMax && number === numberMin) 
-    {
+    else if (number === numberMax && number === numberMin) {
       return number;
     }
-    else if (number < numberMax && number <= numberMin) 		{
+    else if (number < numberMax && number <= numberMin) {
       return lowerBound;
     }
   },
   inRange(number, start, end) {
-  	if(end === undefined) {
+    if(end === undefined) {
       end = start;
       start = 0;
       if(number > start && number < end) {
-      return true;
-    	}
-    	else if(number < start || number > end) {
-      return false;
-    	}
+        return true;
+      }
+      else if(number < start || number > end) {
+        return false;
+      }
       else if(number === start || number === end) {
-      return false;
-    	}
+        return false;
+      }
     }
     else if(start > end) {
-			let swap = end;
-    	end = start;
+      let swap = end;
+      end = start;
       start = swap;
       if(start < number && number < end) {
         return true;
@@ -38,7 +37,7 @@ const _ = {
         return false;
       }
     }
-   	else if(number > start && number < end) {
+     else if(number > start && number < end) {
       return true;
     }
     else if(number < start || number > end) {
@@ -58,7 +57,7 @@ const _ = {
       const paddedString = ' ';
       if(totalPadding % 2 === 0) {
         const halfOfPadding = totalPadding / 2;
-       return  paddedString.repeat(halfOfPadding) + string + paddedString.repeat(halfOfPadding);
+        return  paddedString.repeat(halfOfPadding) + string + paddedString.repeat(halfOfPadding);
       }
       else if(totalPadding % 2 !== 0) {
         const startPadding = Math.floor(totalPadding / 2);
@@ -72,61 +71,61 @@ const _ = {
   },
   has(object, key) {
     if(key in object) {
-        if(typeof(object.key) === "undefined") {
-          return false;
-        }
-        else {
-          return true;
-        }
+      if(typeof(object.key) === "undefined") {
+        return false;
+      }
+      else {
+        return true;
+      }
     }
     else {
       return false;
     }
   },
   invert(object) {
-   const invertObj = {};
+    const invertObj = {};
     for(let key in object) {
       let original = key;
-			invertObj[object[key]] = key;
+      invertObj[object[key]] = key;
     }
     return invertObj;
   },
   findKey(object, predicate) {
     for (let key in object) {
- 			let value = object[key];
+      let value = object[key];
       let predicateValue = predicate(value);
-  		if(predicateValue) {
-  			return key;
-			}
+      if(predicateValue) {
+  	return key;
+      }
     }
     return undefined;
   },
   drop(array, number) {
     let newArray = [];
-		if(number === undefined) {
-    		number = 1;
-     }
+    if(number === undefined) {
+      number = 1;
+    }
     else if(number < 0) {
       number = 0;
     }
-    	for(let i = 0; i < array.length; i++) {
-          //console.log(array[i]);
-          newArray.push(array[i]);
-          //console.log(newArray);      
+    for(let i = 0; i < array.length; i++) {
+      //console.log(array[i]);
+      newArray.push(array[i]);
+      //console.log(newArray);      
     }
     return newArray.slice(number);
   },
   dropWhile(array, predicate) {
     let newArray = [];
-		for(let x = 0; x < array.length; x++) {
+    for(let x = 0; x < array.length; x++) {
      
-     if(!predicate(array[x], x, array)) {
-       newArray = array.slice(x);
-       //console.log(newArray);
-     }
+      if(!predicate(array[x], x, array)) {
+        newArray = array.slice(x);
+        //console.log(newArray);
+      }
     }  
     return newArray;
-	},
+  },
   chunk(array, size) {
     const arrayChunks = [];
     if(size === undefined) {
@@ -137,7 +136,7 @@ const _ = {
       arrayChunks.push(arrayChunk);
       size++;
       //console.log(arrayChunks);
-      }
+    }
     return arrayChunks;
   }
 };
