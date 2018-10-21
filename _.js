@@ -85,7 +85,7 @@ const _ = {
   invert(object) {
     const invertObj = {};
     for(let key in object) {
-      let original = key;
+      //let original = key; --> unused variable
       invertObj[object[key]] = key;
     }
     return invertObj;
