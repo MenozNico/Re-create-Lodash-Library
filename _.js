@@ -128,7 +128,7 @@ const _ = {
   },
   chunk(array, size) {
     const arrayChunks = [];
-    if(size === undefined) {
+    if(!size) {
       size = 1;
     }
     for(let i = 0; i < array.length - 2; i++) {
