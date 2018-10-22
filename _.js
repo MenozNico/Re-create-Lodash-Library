@@ -1,7 +1,9 @@
 const _ = {
   clamp(number, lowerBound, upperBound) {
     numberMax = Math.max(number, lowerBound);
-    numberMin = Math.min(number, upperBound);  	
+    numberMin = Math.min(number, upperBound);  
+    return Math.max(Math.min(number, upperBound), lowerBound);
+    /*
     if(number >= numberMax && number > numberMin) {
       return upperBound;
     } 
@@ -10,7 +12,7 @@ const _ = {
     }
     else if (number < numberMax && number <= numberMin) {
       return lowerBound;
-    }
+    }*/
   },
   inRange(number, start, end) {
     if(end === undefined) {
