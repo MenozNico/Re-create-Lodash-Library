@@ -14,8 +14,26 @@ const _ = {
       return lowerBound;
     }*/
   },
-  inRange(number, start, end) {
-    if(end === undefined) {
+  inRange(number, start, end = 0) {
+    /* Initialize output variable. Returns a Boolean. */
+    let isInRange = false;
+  
+    /* Check for valid input. */
+    if (typeof number === 'number' && typeof start === 'number' && typeof end === 'number') {
+      /* If in range (including lower bound, excluding upper bound),
+         set output variable to true, even when bound_1 > bound_2. */
+      if (number >= Math.min(start, end) && number < Math.max(start, end)) {
+        isInRange = true;
+      }
+    } else {
+        /* Notification, if one of the input arguments is invalid. */ 
+        console.log(`All input arguments must be numbers!`);
+    }
+  
+    /* Return result. */
+    return isInRange;
+  }
+  /*  if(end === undefined) {
       end = start;
       start = 0;
       if(number > start && number < end) {
@@ -47,7 +65,8 @@ const _ = {
     }
     else if(number === start || number === end) {
       return false;
-    }
+    }*/
+    
   },
   words(string) {
     let words = string.split(' ');
