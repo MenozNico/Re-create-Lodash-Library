@@ -91,7 +91,8 @@ const _ = {
     }
   },
   has(object, key) {
-    if(key in object) {
+    return object !== undefined && object[key] != null;
+    /*if(key in object) {
       if(typeof(object.key) === "undefined") {
         return false;
       }
@@ -101,7 +102,8 @@ const _ = {
     }
     else {
       return false;
-    }
+    }*/
+    
   },
   invert(object) {
     const invertObj = {};
